@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: order-service
+  
+  datasource:
+    url: jdbc:mysql://localhost:3307/order_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: orderuser
+    password: orderpass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: true
+    
+  sql:
+    init:
+      mode: always
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.example.orderservice: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
